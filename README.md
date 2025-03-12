@@ -1,1 +1,1 @@
-# Red-Blue-Team-Splunk-Lab
+# Splunk-Lab
