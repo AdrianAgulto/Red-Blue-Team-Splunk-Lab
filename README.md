@@ -23,18 +23,21 @@ Every screenshot should have some text explaining what the screenshot is about.
 
 Example below.
 
-Spin up TWO VM's, One being Windows and the other being Kali Linux, with the network adapter set to the Internal Network setting while making both VM IP's static to the same network, I selected this network scheme for security purposes because I do not want these VM's routing to the internet while still being able to communicate with the other. 
-The IP's in this lab are: Windows box - 192.168.33.2, Kali box - 192.168.33.3 
+Spin up TWO VMs, One being Windows and the other being Kali Linux. On both VMs set the network adapter to the Internal Network setting while making both VM IPs static to the same network. This network scheme was selected for security reasons to keep the VMs from being accessible from the open web, while also being able to communicate with each other.
+The IP's in this lab are: Windows VM - 192.168.33.2, Kali VM - 192.168.33.3 
+For this lab, we will open up the RDP port(3389) and turn off the firewall on our Windows VM
+
 <img width="583" alt="image" src="https://github.com/user-attachments/assets/5b423ff8-596e-4f76-95a8-854c507c9b36" />
+
 Ref 1: Virtual Box Settings
 
-To set up our blue team environment, we will be configuring Sysmon on the endpoint to gather logs and send them directly to our Splunk instance.
-We did this by allocating a Sysmon config file from Github, copying it to our directory, and running the command ./sysmon64.exe -i sysmonconfig.xml
-Installing Sysmon will enhance our ability to capture system events (Since I don't want to expose these VMs to the internet, I downloaded the config file from my main PC, enabled bidirectional drag and drop on the VM, and copied the file into the box.) 
-
+To set up our blue team environment on our Windows VM, we will be configuring Sysmon on the endpoint to gather event logs and send them directly to our Splunk instance, also installed on our Windows machine.
+We did this by allocating a Sysmon config file from Github, copying it to the directory containing the Sysmon application, and running the command ./sysmon64.exe -i sysmonconfig.xml in Powershell
+Installing Sysmon will enhance our ability to capture system events (Since I don't want to expose these VMs to the open web, I downloaded the config file from my main PC, enabled bidirectional drag and drop on the VM, and copied the file into the box.) 
+I also had to install the Sysmon addon for Splunk and create the "endpoint" index. This index points to our Sysmon config file, allowing Sysmon to send logs to our Splunk instance
 SPLUNK SETUP
 
-Quarterlyreport.pdf.exe
+
 
 KALI SETUP
 
