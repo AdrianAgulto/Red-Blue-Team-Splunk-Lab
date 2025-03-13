@@ -1,6 +1,6 @@
 Objective
 
-This Splunk Lab project was created to establish a controlled environment for simulating and detecting cyber attacks. The primary focus was to ingest and analyze logs within a SIEM, generating test telemetry to mimic real-world attack scenarios.  
+
 Skills Learned
 
 [Bullet Points - Remove this afterwards]
@@ -10,18 +10,16 @@ Proficiency in analyzing and interpreting network logs.
 Ability to generate and recognize attack signatures and patterns.
 Enhanced knowledge of network protocols and security vulnerabilities.
 Development of critical thinking and problem-solving skills in cybersecurity.
+
 Tools Used
-[Bullet Points - Remove this afterwards]
+Splunk
+Sysmon
+Metasploit
 
 Security Information and Event Management (SIEM) system for log ingestion and analysis.
 Network analysis tools (such as Wireshark) for capturing and examining network traffic.
 Telemetry generation tools to create realistic network traffic and attack scenarios.
 Steps
-drag & drop screenshots here or use imgur and reference them using imgsrc
-
-Every screenshot should have some text explaining what the screenshot is about.
-
-Example below.
 
 Spin up TWO VMs, One being Windows and the other being Kali Linux. On both VMs set the network adapter to the Internal Network setting while making both VM IPs static to the same network. This network scheme was selected for security reasons to keep the VMs from being accessible from the open web, while also being able to communicate with each other.
 The IP's in this lab are: Windows VM - 192.168.33.2, Kali VM - 192.168.33.3 
@@ -100,6 +98,8 @@ We queried the SourceProcessGUID and organized the output with the table command
 ![Final SIEM](https://github.com/user-attachments/assets/e96640cd-65a9-40e6-a0a4-0e3663bc74e8)
 
 Ref 7: Shell Commands With a Parent Process of Quarterlyreport.pdf.exe
+
+<h3>Incident Response</h3>
 
 Upon analysis, we see commands being executed affiliated with an IP that is not the host's, sound the alarms.
 In a real life scenario, this endpoint would be immediately quarantined from the rest of the network to mitigate damage from spreading.
