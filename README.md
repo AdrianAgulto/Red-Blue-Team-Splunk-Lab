@@ -35,7 +35,7 @@ Ref 1: Virtual Box Settings
 
 <h3>Splunk Setup</h3>
 
-To set up our blue team environment on our Windows VM, we will be configuring Sysmon on the endpoint to gather event logs and send them directly to our Splunk instance, also installed on our Windows machine.
+To set up our blue team environment on our Windows VM, we will be configuring Sysmon on the endpoint to gather event logs and send them directly to our Splunk instance.
 We did this by allocating a Sysmon config file from Github, copying it to the directory containing the Sysmon application, and running the command ./sysmon64.exe -i sysmonconfig.xml in Powershell.
 Installing Sysmon will enhance our ability to capture system events.(Since I don't want to expose these VMs to the open web, I downloaded the config file from my main PC, enabled bidirectional drag and drop on the VM, and copied the file directly into the VM.) 
 For Splunk configuration, I installed the Sysmon add-on and created the "endpoint" index. Our Sysmon config file will point to the index we created by its name, allowing Sysmon to send logs to our Splunk instance
