@@ -1,4 +1,5 @@
-Objective
+<h3>Objective</h3>
+
 I created this lab to have a safe space where I can safely experiment with both red and blue team roles in a live environment. In this lab I will create a virtual network with two endpoints. One of the VM's will be our blue team machine(Windows Box) and the other will be our red team machine(Kali-linux). I will place both machines on a private network and 
 
 Skills Learned
