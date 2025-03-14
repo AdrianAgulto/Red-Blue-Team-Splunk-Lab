@@ -58,7 +58,7 @@ Ref 2: Malicious Payload
 Now we need to deliver the payload to the end user.
 To do so, we will host an HTTP Python server by running the command found below inside the directory where the payload was saved to
 python3 -m http.server 9999. 
-On our Windows machine we will search the IP of our Kali box followed by ":9999" which is the port designated in our Python command. 
+On our Windows machine, we will search for the IP via browser to find the https server being hosted by our Kali VM followed by ":9999" which is the port designated in our Python command. 
 
 ![executing the file](https://github.com/user-attachments/assets/b5601151-d80e-4cca-9425-6304a0f62d4e)
 
