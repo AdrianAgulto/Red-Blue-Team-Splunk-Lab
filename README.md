@@ -1,6 +1,6 @@
 <h3>Objective</h3>
 
-I created this lab to have a safe space where I can safely experiment with both red and blue team roles in a live environment. In this lab I will create a virtual network with two endpoints. One of the VM's will be our blue team machine(Windows Box) and the other will be our red team machine(Kali-linux). I will place both machines on a private network and 
+I created this lab to have a safe space to safely experiment with red/blue team roles in a live environment. In this lab, I will create a private network with two endpoints. One of the VMs will be our blue team machine(Windows Box) and the other will be our red team machine(Kali-linux). I will place both machines on a private network and use Metasploit in the Kali Linux VM to attack our Blue team VM, which will have Sysmon and a Splunk instance to capture all the traffic. 
 
 Skills Learned
 
@@ -23,7 +23,7 @@ Network analysis tools (such as Wireshark) for capturing and examining network t
 Telemetry generation tools to create realistic network traffic and attack scenarios.
 Steps
 
-Spin up TWO VMs, One being Windows and the other being Kali Linux. On both VMs set the network adapter to the Internal Network setting while making both VM IPs static to the same network. This network scheme was selected for security reasons to keep the VMs from being accessible from the open web, while also being able to communicate with each other.
+Spin up TWO VMs, One being Windows and the other being Kali Linux. On both VMs set the network adapter to the "Internal Network" setting while making both VM IPs static to the same network. This network scheme was selected for security reasons to keep the VMs from being accessible from the open web, while also being able to communicate with each other.
 The IP's in this lab are: Windows VM - 192.168.33.2, Kali VM - 192.168.33.3 
 For this lab, we will open up the RDP port(3389) and turn off the firewall on our Windows VM.
 
