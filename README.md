@@ -5,8 +5,11 @@ Skills Learned
 
 Log analysis
 Configuration of a System Information Event Manager(SIEM)
+
 Red/blue teaming
+
 Virtual machine configuration
+
 Experience in a simulated live environment
 
 Tools Used
