@@ -22,10 +22,6 @@ I created this lab to have a safe space to safely experiment with red/blue team 
 
 -Metasploit
 
-Security Information and Event Management (SIEM) system for log ingestion and analysis.
-Network analysis tools (such as Wireshark) for capturing and examining network traffic.
-Telemetry generation tools to create realistic network traffic and attack scenarios.
-Steps
 
 Spin up two VMs, One being Windows and the other being Kali Linux. On both VMs set the network adapter to the "Internal Network" setting while making both VM IPs static to the same network. This network scheme was selected to keep the VMs from being accessible from the open web, while also having the ability to communicate with each other.
 
@@ -37,11 +33,12 @@ For this lab, we will open up the RDP port(3389) and turn off the firewall on ou
 
 Ref 1: Virtual Box Settings
 
+<h3>Splunk Setup</h3>
+
 To set up our blue team environment on our Windows VM, we will be configuring Sysmon on the endpoint to gather event logs and send them directly to our Splunk instance, also installed on our Windows machine.
 We did this by allocating a Sysmon config file from Github, copying it to the directory containing the Sysmon application, and running the command ./sysmon64.exe -i sysmonconfig.xml in Powershell.
 Installing Sysmon will enhance our ability to capture system events.(Since I don't want to expose these VMs to the open web, I downloaded the config file from my main PC, enabled bidirectional drag and drop on the VM, and copied the file directly into the VM.) 
 For Splunk configuration, I installed the Sysmon add-on and created the "endpoint" index. Our Sysmon config file will point to the index we created by its name, allowing Sysmon to send logs to our Splunk instance
-
 
 <h3>Weaponization</h3>
   
@@ -64,7 +61,7 @@ On our Windows machine we will search the IP of our Kali box followed by ":9999"
 
 ![executing the file](https://github.com/user-attachments/assets/b5601151-d80e-4cca-9425-6304a0f62d4e)
 
-Ref 3: Delivering the payload to the victim
+Ref 3: Delivering the Payload to the Victim
 
 After searching this, it will take us to the directory in our Kali VM. We will then download and execute the malicious file we created.
 We see on our Kali terminal that a GET request was logged
