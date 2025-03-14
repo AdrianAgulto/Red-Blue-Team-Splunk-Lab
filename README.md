@@ -29,7 +29,7 @@ Steps
 
 Spin up two VMs, One being Windows and the other being Kali Linux. On both VMs set the network adapter to the "Internal Network" setting while making both VM IPs static to the same network. This network scheme was selected to keep the VMs from being accessible from the open web, while also having the ability to communicate with each other.
 
-The IP's in this lab are: Windows VM - 192.168.33.2, Kali VM - 192.168.33.3 
+The IP's in this Homelab: Windows VM- 192.168.33.2, Kali VM- 192.168.33.3 
 
 For this lab, we will open up the RDP port(3389) and turn off the firewall on our Windows VM.
 
