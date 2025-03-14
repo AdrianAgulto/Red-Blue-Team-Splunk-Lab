@@ -2,21 +2,25 @@
 
 I created this lab to have a safe space to safely experiment with red/blue team roles in a live environment. In this lab, I will create a private network with two endpoints. One of the VMs will be our blue team machine(Windows Box) and the other will be our red team machine(Kali-linux). I will place both machines on a private network and use Metasploit in the Kali Linux VM to attack our Blue team VM, which will have Sysmon and a Splunk instance to capture all the traffic. 
 
-Skills Learned
+<h3>Skills Learned</h3>  
 
-Log analysis
-Configuration of a System Information Event Manager(SIEM)
+-Log analysis
 
-Red/blue teaming
+-Configuration of a System Information Event Manager(SIEM)
 
-Virtual machine configuration
+-Red/blue teaming
 
-Experience in a simulated live environment
+-Virtual machine configuration
 
-Tools Used
-Splunk
-Sysmon
-Metasploit
+-Experience in a simulated live environment
+
+<h3>Tools Used<h/3>
+
+-Splunk
+
+-Sysmon
+
+-Metasploit
 
 Security Information and Event Management (SIEM) system for log ingestion and analysis.
 Network analysis tools (such as Wireshark) for capturing and examining network traffic.
