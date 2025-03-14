@@ -14,7 +14,7 @@ I created this lab to have a safe space to safely experiment with red/blue team 
 
 -Experience in a simulated live environment
 
-<h3>Tools Used</h3>h3>
+<h3>Tools Used</h3>
 
 -Splunk
 
